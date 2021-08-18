@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <PackageId>Realtorist.Web.Application</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Dmytro Bondarchuk</Authors>
+    <Title>Realtorist.Web.Application</Title>
+    <Description>Web application for the Realtorist framework</Description>
+    <RepositoryUrl>https://github.com/realtorist/Realtorist.Web.Application</RepositoryUrl>
+    <ReleaseNotes>Initial publish</ReleaseNotes>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Realtorist.Models" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.DataAccess.Abstractions" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.DataAccess.Implementations.Mongo" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.GeoCoding.Abstractions" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.GeoCoding.Implementations.Here" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.Services.Implementations.Default" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.RetsClient.Abstractions" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.RetsClient.Implementations.Composite" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.RetsClient.Implementations.Crea" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.Web.Helpers" Version="0.0.1"  />
+    <PackageReference Include="Realtorist.Web.Models" Version="0.0.1"  />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nugetizer" Version="0.7.4"  />
+    <PackageReference Include="CaptureRenderTagHelper" Version="1.0.0"  />
+    <PackageReference Include="EasyCronJob.Core" Version="1.0.0"  />
+    <PackageReference Include="GoogleAnalyticsTracker.AspNetCore" Version="6.0.5"  />
+    <PackageReference Include="GoogleAnalyticsTracker.Core" Version="6.0.5"  />
+    <PackageReference Include="GoogleAnalyticsTracker.Simple" Version="6.0.5"  />
+    <PackageReference Include="LettuceEncrypt" Version="1.0.1"  />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"  />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.0"  />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9"  />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3"  />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.1" />
+    <PackageReference Include="NReco.Logging.File" Version="1.1.1"  />
+    <PackageReference Include="SimpleMvcSitemap" Version="4.0.1"  />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0"  />
+    <PackageReference Include="WilderMinds.RssSyndication" Version="1.7.0"  />
+  </ItemGroup>
+
+</Project>

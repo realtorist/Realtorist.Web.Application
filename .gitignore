@@ -1,0 +1,12 @@
+bin
+publish
+obj
+.vs
+*.csproj.user
+
+
+Realtorist.Web/certs/**/*
+Realtorist.Web/logs/**/*
+Realtorist.Web/wwwroot/admin/**/*
+Realtorist.Web/wwwroot/uploads/**/*
+Realtorist.Web/wwwroot/docker-uploads/**/*
