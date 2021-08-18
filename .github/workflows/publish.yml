@@ -24,5 +24,5 @@ jobs:
       run: dotnet publish -c Release --no-restore --no-build --output publish
     - uses: actions/upload-artifact@v2
       with:
-        name: build
+        name: Realtorist.Web.Application
         path: publish/
