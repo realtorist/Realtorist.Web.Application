@@ -32,13 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nugetizer" Version="0.7.4"  />
-    <PackageReference Include="CaptureRenderTagHelper" Version="1.0.0"  />
     <PackageReference Include="EasyCronJob.Core" Version="1.0.0"  />
     <PackageReference Include="GoogleAnalyticsTracker.AspNetCore" Version="6.0.5"  />
     <PackageReference Include="GoogleAnalyticsTracker.Core" Version="6.0.5"  />
     <PackageReference Include="GoogleAnalyticsTracker.Simple" Version="6.0.5"  />
-    <PackageReference Include="LettuceEncrypt" Version="1.0.1"  />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"  />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.0"  />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9"  />

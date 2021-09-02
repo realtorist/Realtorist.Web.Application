@@ -116,21 +116,12 @@ namespace Realtorist.Web.Application
         void IConfigureAction.Execute(IApplicationBuilder app, IServiceProvider serviceProvider)
         {
             var env = serviceProvider.GetService<IWebHostEnvironment>();
-            if (env.IsDevelopment())
-            {
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
 
             app.UseResponseCompression();
 
             app.UseExceptionHandler("/oh-no");
             app.UseMiddleware<ExceptionHandlingMiddleware>();
 
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors();
             app.UseAuthorization();
