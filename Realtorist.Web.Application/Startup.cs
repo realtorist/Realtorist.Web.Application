@@ -83,8 +83,6 @@ namespace Realtorist.Web.Application
             services.AddSingleton<IUpdateFlowFactory, DefaultUpdateFlowFactory>();
 
             var settingsProvider = services.BuildServiceProvider().GetService<ISettingsProvider>();
-            var settings = settingsProvider.GetSettingAsync<WebsiteSettings>(SettingTypes.Website).Result;
-            var profile = settingsProvider.GetSettingAsync<ProfileSettings>(SettingTypes.Profile).Result;
 
             services.Configure<WebEncoderOptions>(options =>
             {
@@ -107,10 +105,17 @@ namespace Realtorist.Web.Application
                 options.MimeTypes = new[] { "application/javascript", "text/css", "text/javascript" };
             });
 
-            services.RegisterJobs(settings);
-
             services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
             services.AddHostedService<BackgroundQueueHostedService>();
+
+            var settings = settingsProvider.GetSettingAsync<WebsiteSettings>(SettingTypes.Website).Result;
+            if (settings is null)
+            {
+                return;
+            }
+
+            var profile = settingsProvider.GetSettingAsync<ProfileSettings>(SettingTypes.Profile).Result;
+            services.RegisterJobs(settings);
         }
 
         void IConfigureAction.Execute(IApplicationBuilder app, IServiceProvider serviceProvider)

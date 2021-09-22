@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Realtorist.DataAccess.Abstractions;
 using Realtorist.GeoCoding.Abstractions;
 using Realtorist.Models.Helpers;
-using Realtorist.Models.Models;
+using Realtorist.Models.Geo;
 using Realtorist.Models.Pagination;
 using Realtorist.Models.Search;
 using Realtorist.Web.Helpers;
