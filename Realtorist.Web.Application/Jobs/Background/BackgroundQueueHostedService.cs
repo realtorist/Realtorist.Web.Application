@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Realtorist.Models.Events;
 using Realtorist.Services.Abstractions.Events;
+using Realtorist.Web.Models.Abstractions.Jobs.Background;
 
 namespace Realtorist.Web.Application.Jobs.Background
 {

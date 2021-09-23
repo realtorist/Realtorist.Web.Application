@@ -23,12 +23,13 @@
     <PackageReference Include="Realtorist.RetsClient.Abstractions" Version="0.0.2"  />
     <PackageReference Include="Realtorist.RetsClient.Implementations.Composite" Version="0.0.2"  />
     <PackageReference Include="Realtorist.RetsClient.Implementations.Crea" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.Web.Helpers" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.Web.Models" Version="0.0.2"  />
+    <PackageReference Include="Realtorist.Web.Helpers" Version="0.0.2" />
+    <PackageReference Include="Realtorist.Web.Models" Version="0.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ExtCore.Mvc.Infrastructure" Version="6.0.0" />
+    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.1" />
+    <PackageReference Include="ExtCore.Infrastructure" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>

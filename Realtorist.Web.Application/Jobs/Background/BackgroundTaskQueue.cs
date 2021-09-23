@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using Realtorist.Web.Models.Abstractions.Jobs.Background;
 
 namespace Realtorist.Web.Application.Jobs.Background
 {
