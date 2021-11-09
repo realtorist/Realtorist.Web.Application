@@ -1,6 +1,4 @@
 using AutoMapper;
-using ExtCore.Infrastructure;
-using ExtCore.Infrastructure.Actions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,10 +6,10 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.WebEncoders;
 using Realtorist.DataAccess.Implementations.Mongo;
 using Realtorist.Extensions.Base;
+using Realtorist.Extensions.Base.Manager;
 using Realtorist.GeoCoding.Implementations.Here;
 using Realtorist.Models.Settings;
 using Realtorist.RetsClient.Abstractions;
@@ -42,6 +40,7 @@ namespace Realtorist.Web.Application
         public void ConfigureServices(IServiceCollection services, IServiceProvider serviceProvider)
         {
             var env = serviceProvider.GetService<IWebHostEnvironment>();
+            var extensionManager = serviceProvider.GetService<IExtensionManager>();
             services.AddControllersWithViews().AddNewtonsoftJson();
 
             services.AddCors(options =>
@@ -61,7 +60,7 @@ namespace Realtorist.Web.Application
                 mc.AddProfile(new Realtorist.Web.Models.AutoMapperProfile());
                 mc.AddProfile(new CreaAutoMapperProfile());
 
-                foreach (var extension in ExtensionManager.GetInstances<IConfigureAutoMapperProfileExtension>().OrderBy(x => x.Priority))
+                foreach (var extension in extensionManager.GetInstances<IConfigureAutoMapperProfileExtension>().OrderBy(x => x.Priority))
                 {
                     mc.AddProfiles(extension.GetAutoMapperProfiles());
                 }
@@ -76,11 +75,6 @@ namespace Realtorist.Web.Application
             services.ConfigureMongoDataAccessServices(configuration);
             services.ConfigureCreaServices();
             services.ConfigureHereGeoCoding();
-            services.AddLogging(loggingBuilder =>
-            {
-                var loggingSection = configuration.GetSection("Logging");
-                loggingBuilder.AddFile(loggingSection);
-            });
 
             services.AddScoped<ViewRenderService>();
 
@@ -122,7 +116,6 @@ namespace Realtorist.Web.Application
                 return;
             }
 
-            var profile = settingsProvider.GetSettingAsync<ProfileSettings>(SettingTypes.Profile).Result;
             services.RegisterJobs(settings);
         }
 

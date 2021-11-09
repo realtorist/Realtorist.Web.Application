@@ -28,8 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.1" />
-    <PackageReference Include="ExtCore.Infrastructure" Version="6.0.0" />
+    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,7 +41,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9"  />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3"  />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.1" />
-    <PackageReference Include="NReco.Logging.File" Version="1.1.1"  />
     <PackageReference Include="SimpleMvcSitemap" Version="4.0.1"  />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0"  />
     <PackageReference Include="WilderMinds.RssSyndication" Version="1.7.0"  />
