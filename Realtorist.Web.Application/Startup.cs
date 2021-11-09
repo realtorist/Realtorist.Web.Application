@@ -21,7 +21,6 @@ using Realtorist.Services.Abstractions.Providers;
 using Realtorist.Services.Abstractions.Upload;
 using Realtorist.Services.Implementations.Default;
 using Realtorist.Services.Implementations.Default.Upload;
-using Realtorist.Web.Admin.Application.Middleware;
 using Realtorist.Web.Application.Jobs;
 using Realtorist.Web.Application.Jobs.Background;
 using Realtorist.Web.Application.Middleware;
