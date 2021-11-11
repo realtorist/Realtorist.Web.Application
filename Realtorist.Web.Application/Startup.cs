@@ -7,18 +7,13 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.WebEncoders;
-using Realtorist.DataAccess.Implementations.Mongo;
 using Realtorist.Extensions.Base;
 using Realtorist.Extensions.Base.Manager;
-using Realtorist.GeoCoding.Implementations.Here;
 using Realtorist.Models.Settings;
 using Realtorist.RetsClient.Abstractions;
 using Realtorist.RetsClient.Implementations.Composite;
-using Realtorist.RetsClient.Implementations.Crea;
 using Realtorist.Services.Abstractions.Providers;
 using Realtorist.Services.Abstractions.Upload;
-using Realtorist.Services.Implementations.Default;
-using Realtorist.Services.Implementations.Default.Upload;
 using Realtorist.Web.Application.Jobs;
 using Realtorist.Web.Application.Jobs.Background;
 using Realtorist.Web.Application.Middleware;
@@ -35,7 +30,7 @@ namespace Realtorist.Web.Application
 {
     public class Startup : IConfigureServicesExtension, IConfigureApplicationExtension
     {
-        public int Priority => 1;
+        public int Priority => (int)ExtensionPriority.MainApplication;
 
         public void ConfigureServices(IServiceCollection services, IServiceProvider serviceProvider)
         {
@@ -58,7 +53,6 @@ namespace Realtorist.Web.Application
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new Realtorist.Web.Models.AutoMapperProfile());
-                mc.AddProfile(new CreaAutoMapperProfile());
 
                 foreach (var extension in extensionManager.GetInstances<IConfigureAutoMapperProfileExtension>().OrderBy(x => x.Priority))
                 {
@@ -71,18 +65,11 @@ namespace Realtorist.Web.Application
 
             var configuration = serviceProvider.GetService<IConfiguration>();
 
-            services.ConfigureDefaultServices();
-            services.ConfigureMongoDataAccessServices(configuration);
-            services.ConfigureCreaServices();
-            services.ConfigureHereGeoCoding();
-
             services.AddScoped<ViewRenderService>();
 
-            services.AddTransient<IUploadService, FileSystemUploadService>();
             services.AddTransient<ILinkProvider, LinkProvider>();
 
             services.AddSingleton<IUpdateFlow, CompositeUpdateFlow>();
-            services.AddSingleton<IUpdateFlowFactory, DefaultUpdateFlowFactory>();
 
             var settingsProvider = services.BuildServiceProvider().GetService<ISettingsProvider>();
 

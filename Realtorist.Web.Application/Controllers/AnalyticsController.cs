@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Realtorist.DataAccess.Abstractions;
-using Realtorist.Models.Listings.Enums;
 using Realtorist.Models.Settings;
 using Realtorist.Services.Abstractions.Providers;
 using Realtorist.Web.Models.Enums;
@@ -41,7 +40,7 @@ namespace Realtorist.Web.Application.Controllers
         public async Task<IActionResult> Event(EventType type, Guid? listingId)
         {
             var analyticsSettings = await _settingsProvider.GetSettingAsync<AnalyticsSettings>(SettingTypes.Analytics);
-            var retsSettings = await _settingsProvider.GetSettingAsync<RetsConfiguration[]>(SettingTypes.ListingSources);
+            var retsSettings = await _settingsProvider.GetSettingAsync<ListingsSettings>(SettingTypes.Listings);
 
             if (!string.IsNullOrEmpty(analyticsSettings?.GoogleAnalyticsId))
             {
@@ -59,10 +58,10 @@ namespace Realtorist.Web.Application.Controllers
             {
                 var listing = await _listingsDataAccess.GetListingAsync(listingId.Value);
 
-                if (listing.Source == ListingSource.Crea)
+                if (listing.FeedId is not null)
                 {
-                    var creaConfiguration = retsSettings?.First(x => x.ListingSource == ListingSource.Crea);
-                    if (creaConfiguration != null)
+                    var creaConfiguration = retsSettings?.Feeds?.First(x => x.Id == listing.FeedId);
+                    if (creaConfiguration is not null && creaConfiguration.FeedType == "CREA")
                     {
                         using (var client = _httpClientFactory.CreateClient())
                         {

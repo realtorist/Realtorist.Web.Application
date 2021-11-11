@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Realtorist.Web.Application</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>Dmytro Bondarchuk</Authors>
     <Title>Realtorist.Web.Application</Title>
     <Description>Web application for the Realtorist framework</Description>
@@ -13,22 +13,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Realtorist.Models" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.DataAccess.Abstractions" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.DataAccess.Implementations.Mongo" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.GeoCoding.Abstractions" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.GeoCoding.Implementations.Here" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.Services.Implementations.Default" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.RetsClient.Abstractions" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.RetsClient.Implementations.Composite" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.RetsClient.Implementations.Crea" Version="0.0.2"  />
-    <PackageReference Include="Realtorist.Web.Helpers" Version="0.0.2" />
+    <PackageReference Include="Realtorist.Models" Version="0.0.3"  />
+    <PackageReference Include="Realtorist.DataAccess.Abstractions" Version="0.0.3"  />
+    <PackageReference Include="Realtorist.GeoCoding.Abstractions" Version="0.0.3"  />
+    <PackageReference Include="Realtorist.Services.Abstractions" Version="0.0.3"  />
+    <PackageReference Include="Realtorist.RetsClient.Abstractions" Version="0.0.3"  />
+    <PackageReference Include="Realtorist.RetsClient.Implementations.Composite" Version="0.0.3"  />
+    <PackageReference Include="Realtorist.Web.Helpers" Version="0.0.3" />
     <PackageReference Include="Realtorist.Web.Models" Version="0.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.2" />
+    <PackageReference Include="Realtorist.Extensions.Base" Version="0.0.3" />
   </ItemGroup>
 
   <ItemGroup>
